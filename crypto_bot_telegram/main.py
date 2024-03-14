@@ -1,9 +1,10 @@
 import telebot
+import os
 from telebot import types # расширенные возможности (клавиатура)
-from config import *
+from config import exchanges
 from extensions import Converter, ApiException
 
-bot = telebot.TeleBot(TOKEN) # получение доступа к боту
+bot = telebot.TeleBot(os.getenv('CRYPTO_BOT_TOKEN')) # получение доступа к боту
 
 def create_markup(base = None): # в качестве аргумента указана валюта, которую необходимо скрыть после выбора пользователем
     """Клавиатура"""
