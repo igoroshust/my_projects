@@ -25,7 +25,7 @@ class Converter:
         except ValueError:
             raise ApiException(f"Не удалось обработать количество: {amount}")
 
-        r = requests.get(f"https://api.getgeoapi.com/v2/currency/convert?api_key=3a4f9408660282f7aae6efb737c70d47ee000f33&from={base_key}&to={sym_key}&amount={amount}")
+        r = requests.get(f"https://api.getgeoapi.com/v2/currency/convert?api_key=bd10d378246ca3a027a0255c4fd7ae73465da0d0&from={base_key}&to={sym_key}&amount={amount}")
         resp = json.loads(r.content)  # парсим строку в объект
         new_price = float(resp['rates'][sym_key]['rate_for_amount'])
         return round(new_price, 2)

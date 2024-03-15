@@ -60,9 +60,10 @@ def amount_handler(message: telebot.types.Message, base, sym):
         bot.send_message(message.chat.id, f"Ошибка конвертации: \n{e}")
     else:
         text = f"""Цена {amount} {base} в {sym.lower()} = {round(new_price, 2)}\n
-Если Вы хотите продолжить работу, введите команду: /convert\n
+Если Вы хотите продолжить работу, введите команду /convert\n
 Всегда рад помочь!\U0001F609"""
         bot.send_message(message.chat.id, text)
 
-bot.polling() # запуск бота
+if __name__ == "__main__":
+    bot.polling() # запуск бота
 
